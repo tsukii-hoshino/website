@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/form",
+      "destination": "https://docs.google.com/forms/d/e/1FAIpQLSdOAyij397SoJW9zZJ8ZnyjXNd2bk15TJx1scmm",
+      "permanent": true
+    },
+    {
+      "source": "/discord",
+      "destination": "https://discordapp.com/users/451335202342436866",
+      "permanent": true
+    },
+    {
+      "source": "/twitter",
+      "destination": "https://x.com/lunar1um",
+      "permanent": true
+    }
+  ]
+}
