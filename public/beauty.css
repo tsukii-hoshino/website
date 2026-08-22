@@ -326,7 +326,6 @@ i {
     background-color: var(--window-bg-color);
     padding-left: 8px;
     padding-right: 8px;
-    padding-top: 8px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -458,11 +457,15 @@ i {
   }
 }
 
+.slightly-less-opacity {
+  opacity: 0.8 !important;
+}
+
 @keyframes window-in {
   from {
-    opacity: 0;
     width: 0;
     height: 0;
+    opacity: 0;
   }
   to {
     opacity: 1;
@@ -471,9 +474,9 @@ i {
 
 @keyframes window-out {
   to {
-    opacity: 0;
     width: 0;
     height: 0;
+    opacity: 0;
   }
   from {
     opacity: 1;

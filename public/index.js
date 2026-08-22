@@ -20,12 +20,19 @@ function handleWindows() {
     listeners: {
       move(event) {
         const target = event.target;
+
+        target.classList.add("slightly-less-opacity");
+
         const x = parseFloat(target.getAttribute("data-x") || 0) + event.dx;
         const y = parseFloat(target.getAttribute("data-y") || 0) + event.dy;
 
         target.style.transform = `translate(${x}px, ${y}px)`;
         target.setAttribute("data-x", x);
         target.setAttribute("data-y", y);
+      },
+      end(event) {
+        const target = event.target;
+        target.classList.remove("slightly-less-opacity");
       },
     },
   });
@@ -43,9 +50,10 @@ document.querySelectorAll(".navigate>a, #home a").forEach((link) => {
 
     history.pushState(null, "", link.getAttribute("href"));
 
-    let elementClassList = !id
-      ? document.getElementById("home").classList
-      : document.getElementById(id)?.classList;
+    let element = !id
+      ? document.getElementById("home")
+      : document.getElementById(id);
+    let elementClassList = element.classList;
 
     // hidden
     if (elementClassList.contains("hidden")) {
@@ -54,11 +62,9 @@ document.querySelectorAll(".navigate>a, #home a").forEach((link) => {
     } else {
       elementClassList.remove("animate-window-in");
       elementClassList.add("animate-window-out");
-
-      setTimeout(
-        () => elementClassList.add("hidden"),
-        WINDOW_ANIMATION_TIME_MS,
-      );
+      setTimeout(() => {
+        elementClassList.add("hidden");
+      }, WINDOW_ANIMATION_TIME_MS);
     }
   });
 });
